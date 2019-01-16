@@ -15,7 +15,7 @@ function commandInput(command, input) {
         if (input ===  " ") {
             input = "The Sign Ace Of Base";
         } else {
-            input = Song;
+            input = input;
         }
         spotify
         .search({ type: "track", query: input })
