@@ -1,24 +1,24 @@
 require("dotenv").config();
-var keys = require("./keys");
+var keys = require("./keys.js");
 var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
 var axios = require("axios");
 var fs = require("fs");
 var moment = require("moment");
 
-var input = process.argv.splice(3).join(" ");
 var command = process.argv[2];
+var input = process.argv.splice(3).join(" ");
 
 function commandInput(command, input) {
     if (command == "spotify-this-song") {
         var input;
-        if (input ===  "") {
+        if (input ===  " ") {
             input = "The Sign Ace Of Base";
         } else {
-            input = song;
+            input = Song;
         }
         spotify
-        .search({type: "track", query: input})
+        .search({ type: "track", query: input })
 
         .then(function (response) {
             console.log(`Artist: ${response.tracks.items[0].artists[0].name}`)
